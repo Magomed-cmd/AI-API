@@ -1,0 +1,31 @@
+# Бинарные файлы Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Каталоги сборки
+/bin/
+/build/
+/dist/
+
+# Кэш Go
+/pkg/
+/vendor/
+
+# Файлы IDE GoLand/IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Логи
+*.log
+
+# Файлы ОС
+.DS_Store
+Thumbs.db
