@@ -1,0 +1,41 @@
+# Translator Service Configuration
+
+# Server settings
+server:
+  port: 8080
+  host: "0.0.0.0"
+  read_timeout: 30s
+  write_timeout: 30s
+  idle_timeout: 60s
+
+# OpenRouter API settings
+openrouter:
+  api_key: "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"
+  base_url: "https://openrouter.ai/api/v1"
+  model: "openrouter/cypher-alpha:free"
+  timeout: 30s
+  max_retries: 3
+  retry_delay: 1s
+
+# Translation settings
+translation:
+  max_text_length: 5000
+  default_temperature: 0.1
+  max_tokens: 1000
+
+# Supported languages
+languages:
+  - code: "en"
+    name: "English"
+  - code: "ru"
+    name: "Russian"
+  - code: "de"
+    name: "German"
+  - code: "fr"
+    name: "French"
+  - code: "es"
+    name: "Spanish"
+  - code: "it"
+    name: "Italian"
+  - code: "pt"
+    name: "Portuguese"

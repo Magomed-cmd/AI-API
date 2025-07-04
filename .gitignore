@@ -14,7 +14,7 @@
 
 # Кэш Go
 /pkg/
-/vendor/
+/vendor/\[
 
 # Файлы IDE GoLand/IntelliJ
 .idea/

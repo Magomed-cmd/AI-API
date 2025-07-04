@@ -1,9 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"AI-API/internal/config"
+	"AI-API/internal/routes"
+	"AI-API/internal/service"
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"log"
+)
 
 func main() {
+	r := gin.Default()
 
-	fmt.Println("Hello, World!")
+	cfg, err := config.Load()
+	if err != nil {
+		log.Fatal("Failed to load configuration:", err)
+	}
 
+	// Передаем конфиг в сервис
+	translatorService := service.NewTranslatorService(cfg)
+
+	routes.RegisterRoutes(r, translatorService)
+
+	r.Run(fmt.Sprintf(":%d", cfg.Server.Port))
 }
