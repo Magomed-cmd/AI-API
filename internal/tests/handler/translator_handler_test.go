@@ -75,7 +75,9 @@ func TestGetLanguages_EmptyConfig(t *testing.T) {
 	router := gin.New()
 	router.GET("/languages", translatorHandler.GetLanguages)
 
-	req, _ := http.NewRequest("GET", "/languages", nil)
+	req, err := http.NewRequest("GET", "/languages", nil)
+	assert.NoError(t, err)
+
 	recorder := httptest.NewRecorder()
 
 	router.ServeHTTP(recorder, req)
@@ -83,7 +85,8 @@ func TestGetLanguages_EmptyConfig(t *testing.T) {
 	assert.Equal(t, http.StatusOK, recorder.Code)
 
 	var response map[string]interface{}
-	json.Unmarshal(recorder.Body.Bytes(), &response)
+	err = json.Unmarshal(recorder.Body.Bytes(), &response)
+	assert.NoError(t, err)
 
 	languages := response["languages"].([]interface{})
 	assert.Len(t, languages, 0)

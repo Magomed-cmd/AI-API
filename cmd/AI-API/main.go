@@ -22,5 +22,7 @@ func main() {
 
 	routes.RegisterRoutes(r, translatorService)
 
-	r.Run(fmt.Sprintf(":%d", cfg.Server.Port))
+	if err := r.Run(fmt.Sprintf(":%d", cfg.Server.Port)); err != nil {
+		log.Fatal("Failed to start server:", err)
+	}
 }
