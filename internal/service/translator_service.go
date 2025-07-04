@@ -52,7 +52,7 @@ func (t *TranslatorService) Translate(ctx context.Context, text, fromLanguage, t
 		return "", fmt.Errorf("failed to make request: %w", err)
 	}
 
-	defer res.Body.Close()
+	defer func() { _ = res.Body.Close() }()
 	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		return "", fmt.Errorf("failed to read response body: %w", err)
