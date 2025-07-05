@@ -10,7 +10,7 @@ server:
 
 # OpenRouter API settings
 openrouter:
-  api_key: "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"
+  api_key: "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"
   base_url: "https://openrouter.ai/api/v1"
   model: "openrouter/cypher-alpha:free"
   timeout: 30s
